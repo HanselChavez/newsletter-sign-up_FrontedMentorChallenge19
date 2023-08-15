@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+	<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+	<style>
+		:root{
+			--roboto: 'Roboto', sans-serif;
+			--tomato: hsl(4, 100%, 67%);
+			--dark-slate-grey: hsl(234, 29%, 20%);
+			--charcoal-grey: hsl(235, 18%, 26%);
+			--grey: hsl(231, 7%, 60%);
+			--white: hsl(0, 0%, 100%);
+		}
+		html{
+			box-sizing: border-box; 
+		}   
+		body,html{
+			min-height: 100%;
+		}  
+		body{ 	
+			font-family: var(--roboto);		
+		}
+		*,*::before,*::after{
+			text-align: left;
+			box-sizing: inherit;
+			margin: 0;
+			padding: 0;
+		}
+		.heading{
+			font-size: 39px;
+			color: var(--dark-slate-grey);
+		}
+	
+		.main-content{
+			padding: 35px 25px; 
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.text{
+			margin: 19px 0;
+			line-height: 1.5;
+			color: var(--dark-slate-grey);			
+		}
+		.updates{
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			margin: 25px 0 40px 0;
+		}
+		.update{
+			list-style: none;
+			line-height: 1.5;
+			display: flex;
+			align-items: flex-start;
+			gap: 18px;
+		}	
+		.form{
+			display: flex;
+			flex-direction: column;
+			gap: 11px;
+		}
+		.lblemail{
+			font-size: 12px;
+			color: var(--dark-slate-grey);
+			font-weight: 700;	
+		}
+		.email{
+			width: 100%;
+			border: 1px solid var(--grey);
+			height: 56px;
+			border-radius: 10px;
+			font-size: 16px;
+			padding: 20px;
+			outline: none;
+		}
+		.btn{
+			text-align: center;
+			font-size: 15px;
+			font-weight: 700;
+			color: var(--white);
+			width: 100%;
+			height: 56px;
+			border-radius: 8px;
+			margin: 12px 0 5px;
+			border: none;
+			background-color: var(--dark-slate-grey);
+		}
+		.btn:hover{
+			box-shadow: 0px 10px 30px 6px hsla(4, 100%, 67%, 0.466);;
+			cursor: pointer;
+			background: linear-gradient(to right ,  hsl(347, 75%, 62%) 0%, var(--tomato) 100%);
+		}
+		.image-mobile{
+			width: 100%;
+		}
+		.image-desktop{
+			display: none;
+		}
+		.error{
+			border: 2px solid var(--tomato);
+			background-color:  hsla(4, 100%, 67%, 0.199);
+			color: var(--tomato);
+		}
+		.error-email{
+			display: inline;
+			font-size: 12px;
+			color: var(--tomato);			
+		}
+		.validacion{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.icon-success{
+			margin: 140px 0 40px;
+		}
+		.email-span{
+			font-weight: 700;
+		}
+		body{
+			height: 100vh;
+		}
+		.success-message{
+			max-width: 600px;
+			padding: 25px;
+			height: 100%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		@media (min-width: 768px) {
+			body{
+				height: 100vh;
+				background-color: var(--dark-slate-grey);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.sign-up{
+				background-color: var(--white);
+				width: 900px;
+				border-radius: 25px;
+				overflow: hidden;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: 1fr 1fr;	
+			}
+			.image-mobile{
+				display: none;
+			}
+			.image-desktop{
+				display: block;			
+				width: 100%;
+			}
+			.main-content{
+				grid-column: 1/2;
+				grid-row: 1/2;
+				display: flex;
+				flex-direction: column;
+				padding: 50px;
+				justify-content: center;
+			}
+			.updates{
+				margin-top: 0;
+			}
+			.image-container{	
+				padding: 25px;
+				grid-column: 2/3;
+			}
+			.success-message{
+				background-color: var(--white);
+				height: auto;
+				padding:  55px 60px ;
+				max-width: 500px;
+				border-radius: 25px;
+			}
+			.icon-success{
+				margin: 0 0 20px 0;
+				
+			}
+		}
+		.hidden{
+			display: none;
+		}
+  	</style>
+</head>
+<body>
+
+	<!-- Sign-up form start -->
+	<main class="sign-up">
+		<div class="image-container">
+			<img class="image-mobile" src="./assets/images/illustration-sign-up-mobile.svg" alt="illustration-mobile">
+			<img class="image-desktop" src="./assets/images/illustration-sign-up-desktop.svg" alt="illustration-desktop">
+
+		</div>
+		<div class="main-content">
+			<h2 class="heading">Stay updated!</h2>
+			<p class="text">
+				Join 60,000+ product managers receiving monthly updates on:
+			</p>
+			<ul class="updates">
+				<li class="update">
+					<img src="./assets/images/icon-list.svg" alt="icon-list">
+					Product discovery and building what matters
+				</li>
+				<li class="update">
+					<img src="./assets/images/icon-list.svg" alt="icon-list">
+					Measuring to ensure updates are a success
+				</li>
+				<li class="update">
+					<img src="./assets/images/icon-list.svg" alt="icon-list">
+					And much more!
+				</li>
+			</ul>
+			<form novalidate class="form">
+				<div class="validacion">
+					<label class="lblemail" for="email">Email Address</label>
+					<p class="error-email hidden">Valid email required</p>
+				</div>
+				<input placeholder="email@company.com" class="email" type="email" name="email" id="email">
+				<input class="btn" type="submit" value="Subscribe to monthly newsletter">
+			</form>	
+		</div>
+			
+	</main>
+	
+
+	<!-- Sign-up form end -->
+
+	<!-- Success message start -->
+	<section class="success-message hidden">		
+		<div class="message">
+			<img class="icon-success" src="./assets/images/icon-success.svg" alt="">
+			<h2 class="heading">Thanks for subscribing!</h2>
+			<p class="text">
+				A confirmation email has been sent to 
+				<span class="email-span">
+					
+				</span>
+				Please open it and click the button inside to confirm your subscription.
+			</p>
+		</div>		
+		<button class="btn btn-dismiss">
+			Dismiss message
+		</button>
+	</section>
+
+	
+
+	<!-- Success message end -->
+	<script>
+		const form = document.querySelector('.form');
+		const signUp = document.querySelector('.sign-up');
+		const messageSuccess = document.querySelector('.success-message');
+		const btnDismiss = document.querySelector('.btn-dismiss');
+		const emailSpan = document.querySelector('.email-span');
+		form.addEventListener('submit',(e)=>{
+			e.preventDefault();
+			const email = document.querySelector('#email');
+			if(!validarEmail(email.value)){
+				const error=document.querySelector(`.error-${email.id}`);
+				error.classList.remove('hidden');
+				email.classList.add('error');				
+				setTimeout(() => {
+					error.classList.add('hidden');
+					email.classList.remove('error');
+				}, 3000);
+			}else{
+				emailSpan.textContent = email.value;
+				form.reset();
+				signUp.classList.add('hidden');
+				messageSuccess.classList.remove('hidden');
+			}
+		});
+		btnDismiss.addEventListener('click',() => {
+			emailSpan.textContent = '';
+			messageSuccess.classList.add('hidden');
+			signUp.classList.remove('hidden');
+		})
+
+		function validarEmail(email) {
+			var patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+			return patron.test(email);
+		}
+	</script>
+
+</body>
+</html>
